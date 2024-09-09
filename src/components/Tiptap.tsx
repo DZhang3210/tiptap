@@ -66,7 +66,7 @@ const Tiptap = () => {
     <>
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          <div className="flex gap-2">
+          <div className="flex gap-2 bg-red-100">
             <button
               onClick={() => editor.chain().focus().toggleBold().run()}
               className={editor.isActive("bold") ? "is-active" : ""}
@@ -146,7 +146,7 @@ const Tiptap = () => {
         Submit
       </button>
       {/* <div dangerouslySetInnerHTML={{ __html: code }} /> */}
-      <div>{parse(code)}</div>
+      <div className="tiptap">{parse(code)}</div>
     </>
   );
 };
