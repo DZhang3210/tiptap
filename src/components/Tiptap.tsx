@@ -15,7 +15,7 @@ import CharacterCount from "@tiptap/extension-character-count";
 import History from "@tiptap/extension-history";
 import OrderedList from "@tiptap/extension-ordered-list";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ReadOnly from "./read-only";
 import MainEditor from "./main-editor";
 import { EnterKeyHandler } from "./EnterKeyHandler";
@@ -26,12 +26,10 @@ const limit = 280;
 const Tiptap = () => {
   const [text, setText] = useState("");
   const [editable, setEditable] = useState(true);
-
-  const handleSubmit = async () => {
-    if (!editor) return "";
-    const res = editor.getHTML();
-    console.log(res);
-    setText(res);
+  const ref = useRef<HTMLButtonElement>(null);
+  const handleSubmit = () => {
+    if (!editor) return;
+    console.log(text);
   };
 
   const editor = useEditor(
@@ -58,7 +56,7 @@ const Tiptap = () => {
           limit,
         }),
         //{ onSubmit: handleSubmit }
-        EnterKeyHandler(),
+        EnterKeyHandler({ ref: ref }),
       ],
       content: { text },
       onUpdate: ({}) => {
@@ -78,7 +76,7 @@ const Tiptap = () => {
     <>
       <MainEditor editor={editor} />
 
-      <button onClick={handleSubmit} className="bg-red-500">
+      <button onClick={handleSubmit} className="bg-red-500" ref={ref}>
         Submit
       </button>
       <button
