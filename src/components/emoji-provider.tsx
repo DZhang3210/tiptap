@@ -14,6 +14,11 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 
+// const onEmojiSelect = (emoji: any) => {
+//   if (!editor) return;
+//   editor.chain().focus().insertContent(emoji.native).run();
+// };
+
 interface EmojiPopoverProps {
   children: React.ReactNode;
   hint?: string;
