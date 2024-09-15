@@ -92,16 +92,22 @@ body {
 }
 
 .tiptap {
+  padding-left: 3px;
+  min-height: 100px;
+  caret-color: black;
+}
+
+.tiptap {
   :first-child {
     margin-top: 0;
   }
 
   pre {
-    background: var(--black);
+    /* background: var(--black); */
     border-radius: 0.5rem;
     background-color: #f6f3ff;
-    color: var(--black);
-    font-family: "JetBrainsMono", monospace;
+    /* color: var(--black); */
+    /* font-family: "JetBrainsMono", monospace; */
     margin: 1.5rem 0;
     padding: 0.75rem 1rem;
 
@@ -135,4 +141,8 @@ body {
     margin-top: 0.25em;
     margin-bottom: 0.25em;
   }
+}
+
+.editor-content {
+  caret-color: auto; /* or specify a color like 'black' */
 }
